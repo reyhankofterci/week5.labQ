@@ -1,27 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 int main()
 {
-    int i,a;
+    char str1[100];
+    char revstr[100];
+    char *stptr = str1;
+    char *rvptr = revstr;
+    int i = -1;
 
-    printf("Input the number of elements to store in the array : ");
-    scanf("%d",&i);
+    printf("\n Pointer : print a string in reverse order  \n");
+    printf("input a string: ");
+    scanf("%s",&str1);
 
-    int dizi[i],*p,k,sum=0;
-
-    for(a=0; a<i; a++)
+    while(*stptr)
     {
-        printf("element - %d : ",a);
-        scanf("%d",&k);
-        dizi[a]=k;
+        stptr++;
+        i++;
     }
 
-    p = dizi;
-
-    for(a = 0; a<i; p++, a++)
+    while(i>=0)
     {
-        sum+=*p;
+        stptr--;
+        *rvptr = *stptr;
+        rvptr++;
+        --i;
     }
-    printf("The Sum of the array : %d",sum);
+
+    *rvptr = '\0';
+    printf("reverse of the string is : %s \n ", revstr);
+
+
+    return 0;
 }
